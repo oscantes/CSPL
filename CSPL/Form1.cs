@@ -71,8 +71,6 @@ namespace CSPL
                 //    await Task.Delay(3000);
                 //    label9.Text = String.Empty;
                 //});
-
-                //test1 - modification from VS
             }
         }
 
