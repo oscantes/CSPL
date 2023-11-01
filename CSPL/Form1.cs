@@ -1,6 +1,10 @@
 using System.Diagnostics;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Runtime.Serialization;
+using System.Management.Automation;
+
 
 namespace CSPL
 {
@@ -10,9 +14,8 @@ namespace CSPL
         {
             InitializeComponent();
 
-            //run as user
+            //Welcomes user
             label8.Text = $"Welcome {Environment.UserName}!\r\n" +
-                $"{Environment.OSVersion}\r\n" +
                 $"{Environment.MachineName}\r\n" +
                 $"Processor Count: {Environment.ProcessorCount}\r\n";
 
@@ -38,6 +41,13 @@ namespace CSPL
         {
             ProcessStartInfo taskmgrwindow = new("taskmgr.exe");
             Process.Start(taskmgrwindow);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            PowerShell openDvmgt = PowerShell.Create();
+            openDvmgt.AddScript(@"psexec ""\\localhost"" /accepteula -s -i $sessionid cmd.exe /C ""start devmgmt""");
+            openDvmgt.Invoke();
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -97,6 +107,30 @@ namespace CSPL
             {
                 Debug.WriteLine(err.Message);
             }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            //starting bunch of programs
+
+            string finesse_url = @"https://gtuccx01.gen.halkbank.local:8445/desktop/container/?locale=en_US";
+            Process.Start("C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe", finesse_url);
+            Process.Start("C:\\Program Files (x86)\\Cisco Systems\\Cisco Jabber\\CiscoJabber.exe");
+            Process.Start("C:\\Program Files\\Notepad++\\notepad++.exe");
+            Process.Start("C:\\Program Files (x86)\\Microsoft Office\\root\\Office16\\OUTLOOK.EXE");
+            Process.Start(@"C:\Program Files (x86)\Microsoft Office\root\Office16\lync.exe");
+            Process.Start("Z:\\ProgramFiles\\ToolsForBTM\\ToolsForBTM.exe");
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            //powershell komutu ile denenecek
+
+            //AddCommand çalýþmýyor, belki console'da çalýþýyordur
+            //AddParameter da etki etmedi nedense
+            PowerShell restartPS = PowerShell.Create();
+            restartPS.AddScript("Restart-Service -Name \"PulseSecureService\"");
+            restartPS.Invoke();
         }
     }
 }

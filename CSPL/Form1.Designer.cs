@@ -55,6 +55,7 @@
             tab2listBox1 = new ListBox();
             label5 = new Label();
             tabPage1 = new TabPage();
+            button8 = new Button();
             label8 = new Label();
             button6 = new Button();
             button5 = new Button();
@@ -296,6 +297,7 @@
             // 
             // tabPage1
             // 
+            tabPage1.Controls.Add(button8);
             tabPage1.Controls.Add(label8);
             tabPage1.Controls.Add(button6);
             tabPage1.Controls.Add(button5);
@@ -319,6 +321,16 @@
             tabPage1.Text = "Home";
             tabPage1.UseVisualStyleBackColor = true;
             // 
+            // button8
+            // 
+            button8.Location = new Point(490, 63);
+            button8.Name = "button8";
+            button8.Size = new Size(132, 23);
+            button8.TabIndex = 14;
+            button8.Text = "Restart Ivanti Service";
+            button8.UseVisualStyleBackColor = true;
+            button8.Click += button8_Click;
+            // 
             // label8
             // 
             label8.AutoSize = true;
@@ -331,18 +343,19 @@
             // 
             // button6
             // 
-            button6.Location = new Point(266, 179);
+            button6.Location = new Point(490, 34);
             button6.Name = "button6";
-            button6.Size = new Size(110, 23);
+            button6.Size = new Size(132, 23);
             button6.TabIndex = 12;
-            button6.Text = "button6";
+            button6.Text = "Morning sunshine";
             button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
             // 
             // button5
             // 
             button5.Location = new Point(266, 150);
             button5.Name = "button5";
-            button5.Size = new Size(110, 23);
+            button5.Size = new Size(132, 23);
             button5.TabIndex = 11;
             button5.Text = "button5";
             button5.UseVisualStyleBackColor = true;
@@ -351,7 +364,7 @@
             // 
             button4.Location = new Point(266, 121);
             button4.Name = "button4";
-            button4.Size = new Size(110, 23);
+            button4.Size = new Size(132, 23);
             button4.TabIndex = 11;
             button4.Text = "Hello Button";
             button4.UseVisualStyleBackColor = true;
@@ -361,16 +374,17 @@
             // 
             button3.Location = new Point(266, 92);
             button3.Name = "button3";
-            button3.Size = new Size(110, 23);
+            button3.Size = new Size(132, 23);
             button3.TabIndex = 10;
             button3.Text = "Device Manager";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // button2
             // 
             button2.Location = new Point(266, 63);
             button2.Name = "button2";
-            button2.Size = new Size(110, 23);
+            button2.Size = new Size(132, 23);
             button2.TabIndex = 9;
             button2.Text = "Task Manager";
             button2.UseVisualStyleBackColor = true;
@@ -380,7 +394,7 @@
             // 
             button1.Location = new Point(266, 34);
             button1.Name = "button1";
-            button1.Size = new Size(110, 23);
+            button1.Size = new Size(132, 23);
             button1.TabIndex = 8;
             button1.Text = "CMD";
             button1.UseVisualStyleBackColor = true;
@@ -418,6 +432,7 @@
             textBox1.PlaceholderText = "Enter computername or IP";
             textBox1.Size = new Size(252, 23);
             textBox1.TabIndex = 3;
+            textBox1.Text = "localhost";
             // 
             // label3
             // 
@@ -532,5 +547,6 @@
         private ListBox listBox1;
         private Label label1;
         private TabControl tabControl1;
+        private Button button8;
     }
 }
