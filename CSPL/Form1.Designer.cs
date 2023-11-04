@@ -33,7 +33,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             tabPage3 = new TabPage();
             listBox2 = new ListBox();
-            entryviewtabbtn1 = new Button();
+            readRowsBtn = new Button();
             listView1 = new ListView();
             columnHeader0 = new ColumnHeader();
             columnHeader1 = new ColumnHeader();
@@ -72,20 +72,23 @@
             listBox1 = new ListBox();
             label1 = new Label();
             tabControl1 = new TabControl();
+            statusStrip1 = new StatusStrip();
+            toolStripStatusLabel1 = new ToolStripStatusLabel();
             tabPage3.SuspendLayout();
             tabPage2.SuspendLayout();
             tabPage1.SuspendLayout();
             tabControl1.SuspendLayout();
+            statusStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // tabPage3
             // 
             tabPage3.Controls.Add(listBox2);
-            tabPage3.Controls.Add(entryviewtabbtn1);
+            tabPage3.Controls.Add(readRowsBtn);
             tabPage3.Controls.Add(listView1);
             tabPage3.Location = new Point(4, 24);
             tabPage3.Name = "tabPage3";
-            tabPage3.Size = new Size(1008, 557);
+            tabPage3.Size = new Size(1008, 556);
             tabPage3.TabIndex = 2;
             tabPage3.Text = "Kayıt Görüntüleyici";
             tabPage3.UseVisualStyleBackColor = true;
@@ -99,16 +102,16 @@
             listBox2.Size = new Size(992, 349);
             listBox2.TabIndex = 2;
             // 
-            // entryviewtabbtn1
+            // readRowsBtn
             // 
-            entryviewtabbtn1.AutoSize = true;
-            entryviewtabbtn1.Location = new Point(8, 22);
-            entryviewtabbtn1.Name = "entryviewtabbtn1";
-            entryviewtabbtn1.Size = new Size(82, 25);
-            entryviewtabbtn1.TabIndex = 1;
-            entryviewtabbtn1.Text = "Kayıtları Çek";
-            entryviewtabbtn1.UseVisualStyleBackColor = true;
-            entryviewtabbtn1.Click += entryviewtabbtn1_Click;
+            readRowsBtn.AutoSize = true;
+            readRowsBtn.Location = new Point(8, 22);
+            readRowsBtn.Name = "readRowsBtn";
+            readRowsBtn.Size = new Size(82, 25);
+            readRowsBtn.TabIndex = 1;
+            readRowsBtn.Text = "Kayıtları Çek";
+            readRowsBtn.UseVisualStyleBackColor = true;
+            readRowsBtn.Click += readRowsBtn_Click;
             // 
             // listView1
             // 
@@ -176,7 +179,7 @@
             tabPage2.Location = new Point(4, 24);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1008, 557);
+            tabPage2.Size = new Size(1008, 556);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Kayıt Oluşturucu";
             // 
@@ -316,7 +319,7 @@
             tabPage1.Location = new Point(4, 24);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1008, 557);
+            tabPage1.Size = new Size(1008, 556);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Home";
             tabPage1.UseVisualStyleBackColor = true;
@@ -480,16 +483,32 @@
             tabControl1.Location = new Point(0, 0);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1016, 585);
+            tabControl1.Size = new Size(1016, 584);
             tabControl1.TabIndex = 0;
             tabControl1.Tag = "";
+            // 
+            // statusStrip1
+            // 
+            statusStrip1.Items.AddRange(new ToolStripItem[] { toolStripStatusLabel1 });
+            statusStrip1.Location = new Point(0, 584);
+            statusStrip1.Name = "statusStrip1";
+            statusStrip1.Size = new Size(1016, 22);
+            statusStrip1.TabIndex = 1;
+            statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            toolStripStatusLabel1.Size = new Size(61, 17);
+            toolStripStatusLabel1.Text = "Son işlem:";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1016, 585);
+            ClientSize = new Size(1016, 606);
             Controls.Add(tabControl1);
+            Controls.Add(statusStrip1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form1";
             Text = "CSPL";
@@ -500,7 +519,10 @@
             tabPage1.ResumeLayout(false);
             tabPage1.PerformLayout();
             tabControl1.ResumeLayout(false);
+            statusStrip1.ResumeLayout(false);
+            statusStrip1.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -509,7 +531,7 @@
         private ColumnHeader sütun3;
         private TabPage tabPage3;
         private ListBox listBox2;
-        private Button entryviewtabbtn1;
+        private Button readRowsBtn;
         private ListView listView1;
         private ColumnHeader columnHeader0;
         private ColumnHeader columnHeader1;
@@ -548,5 +570,7 @@
         private Label label1;
         private TabControl tabControl1;
         private Button button8;
+        private StatusStrip statusStrip1;
+        private ToolStripStatusLabel toolStripStatusLabel1;
     }
 }

@@ -63,7 +63,7 @@ namespace CSPL
         private void tab2button1_Click(object sender, EventArgs e)
         {
 
-            using (StreamWriter outputFile = new StreamWriter(Path.Combine(Environment.GetFolderPath(0), "incident_new.txt"), append: true)) //(0) for desktop; true: append
+            using (StreamWriter outputFile = new StreamWriter(Path.Combine(Environment.GetFolderPath(0), "incident_NEW.txt"), append: true)) //(0) for desktop; true: append
             {
                 //tarih damgasý þimdilik mevcutta(excel)de oluþturulan formatta eklendi
                 //string.Join() de kullanýlabilir
@@ -84,19 +84,23 @@ namespace CSPL
             }
         }
 
-        private void entryviewtabbtn1_Click(object sender, EventArgs e)
+        private void readRowsBtn_Click(object sender, EventArgs e)
         {
             try
             {
                 // Open the text file using a streamreader(with using statement, why though?), read the stream as a string
                 //StreamReader'ýn ilginç bir yapýsý var, bir kere akýyor ve while içinde deðeri deðiþiyor
-                using (var sr = new StreamReader(Path.Combine(Environment.GetFolderPath(0), "incident_new.txt")))
+                using (var sr = new StreamReader(Path.Combine(Environment.GetFolderPath(0), "incident_NEW.txt")))
                 {
                     listBox2.Items.Clear();
                     string line = "";
                     while ((line = sr.ReadLine()) != null)
                     {
                         listBox2.Items.Add(line);
+                    }
+                    if (listBox2.Text == "")
+                    {
+                        //write to status bar that "Kayýt mevcut deðil"
                     }
                 }
                 //selects last item(in order to scroll there) then unselects it
