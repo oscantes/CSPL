@@ -4,7 +4,8 @@ using System.Windows.Forms.VisualStyles;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Runtime.Serialization;
 using System.Management.Automation;
-
+using System.ServiceModel.Syndication;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace CSPL
 {
@@ -19,6 +20,8 @@ namespace CSPL
                 $"{Environment.MachineName}\r\n" +
                 $"Processor Count: {Environment.ProcessorCount}\r\n";
 
+            //writes launch time to statusbar
+            StatusLabel1.Text = $"{DateTime.Now.ToString(format: "g")}";
         }
 
         private void tab2listBox2_SelectedIndexChanged(object sender, EventArgs e)
@@ -98,9 +101,14 @@ namespace CSPL
                     {
                         listBox2.Items.Add(line);
                     }
-                    if (listBox2.Text == "")
+                    if (listBox2.Items.Count == 0)
                     {
-                        //write to status bar that "Kayýt mevcut deðil"
+                        StatusbarNotifier(true, "Kayýt mevcut deðil");
+                    }
+                    else
+                    {
+                        StatusbarNotifier(true, "Kayýtlar getirildi");
+
                     }
                 }
                 //selects last item(in order to scroll there) then unselects it
@@ -113,10 +121,8 @@ namespace CSPL
             }
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void morningBtn_Click(object sender, EventArgs e)
         {
-            //starting bunch of programs
-
             string finesse_url = @"https://gtuccx01.gen.halkbank.local:8445/desktop/container/?locale=en_US";
             Process.Start("C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe", finesse_url);
             Process.Start("C:\\Program Files (x86)\\Cisco Systems\\Cisco Jabber\\CiscoJabber.exe");
@@ -135,6 +141,34 @@ namespace CSPL
             PowerShell restartPS = PowerShell.Create();
             restartPS.AddScript("Restart-Service -Name \"PulseSecureService\"");
             restartPS.Invoke();
+        }
+
+        //birbirine baðlý bu iki methodun tek parça olaný vardýr kesin
+        void StatusbarNotifier(bool success)
+        {
+            if (success)
+            {
+                StatusbarNotifier(success, "Ýþlem baþarýyla gerçekleþtirildi");
+            }
+            else
+            {
+                StatusbarNotifier(success, "Ýþlem gerçekleþtirilemedi");
+            }
+        }
+        async void StatusbarNotifier(bool success, string message)
+        {
+            if (success)
+            {
+                StatusLabel1.Text = $"{DateTime.Now.ToString(format: "G")} - {message}";
+                statusStrip1.BackColor = Color.LightGreen;
+            }
+            else
+            {
+                StatusLabel1.Text = $"{DateTime.Now.ToString(format: "G")} - {message}";
+                statusStrip1.BackColor = Color.PaleVioletRed;
+            }
+            await Task.Delay(3000);
+            statusStrip1.BackColor = SystemColors.Control;
         }
     }
 }

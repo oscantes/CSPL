@@ -32,15 +32,9 @@
             ListViewItem listViewItem2 = new ListViewItem(new string[] { "2", "usneram", "jabbe sorunu", "açılmyıor", "müdajal edildi", "bugün" }, -1);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             tabPage3 = new TabPage();
-            listBox2 = new ListBox();
+            viewRowsSplitter = new TableLayoutPanel();
             readRowsBtn = new Button();
-            listView1 = new ListView();
-            columnHeader0 = new ColumnHeader();
-            columnHeader1 = new ColumnHeader();
-            columnHeader2 = new ColumnHeader();
-            columnHeader3 = new ColumnHeader();
-            columnHeader4 = new ColumnHeader();
-            columnHeader5 = new ColumnHeader();
+            listBox2 = new ListBox();
             tabPage2 = new TabPage();
             button7 = new Button();
             label9 = new Label();
@@ -57,7 +51,7 @@
             tabPage1 = new TabPage();
             button8 = new Button();
             label8 = new Label();
-            button6 = new Button();
+            morningBtn = new Button();
             button5 = new Button();
             button4 = new Button();
             button3 = new Button();
@@ -72,20 +66,28 @@
             listBox1 = new ListBox();
             label1 = new Label();
             tabControl1 = new TabControl();
+            tabPage4 = new TabPage();
+            listView1 = new ListView();
+            columnHeader0 = new ColumnHeader();
+            columnHeader1 = new ColumnHeader();
+            columnHeader2 = new ColumnHeader();
+            columnHeader3 = new ColumnHeader();
+            columnHeader4 = new ColumnHeader();
+            columnHeader5 = new ColumnHeader();
             statusStrip1 = new StatusStrip();
-            toolStripStatusLabel1 = new ToolStripStatusLabel();
+            StatusLabel1 = new ToolStripStatusLabel();
             tabPage3.SuspendLayout();
+            viewRowsSplitter.SuspendLayout();
             tabPage2.SuspendLayout();
             tabPage1.SuspendLayout();
             tabControl1.SuspendLayout();
+            tabPage4.SuspendLayout();
             statusStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // tabPage3
             // 
-            tabPage3.Controls.Add(listBox2);
-            tabPage3.Controls.Add(readRowsBtn);
-            tabPage3.Controls.Add(listView1);
+            tabPage3.Controls.Add(viewRowsSplitter);
             tabPage3.Location = new Point(4, 24);
             tabPage3.Name = "tabPage3";
             tabPage3.Size = new Size(1008, 556);
@@ -93,73 +95,42 @@
             tabPage3.Text = "Kayıt Görüntüleyici";
             tabPage3.UseVisualStyleBackColor = true;
             // 
-            // listBox2
+            // viewRowsSplitter
             // 
-            listBox2.FormattingEnabled = true;
-            listBox2.ItemHeight = 15;
-            listBox2.Location = new Point(8, 53);
-            listBox2.Name = "listBox2";
-            listBox2.Size = new Size(992, 349);
-            listBox2.TabIndex = 2;
+            viewRowsSplitter.ColumnCount = 1;
+            viewRowsSplitter.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            viewRowsSplitter.Controls.Add(readRowsBtn, 0, 0);
+            viewRowsSplitter.Controls.Add(listBox2, 0, 1);
+            viewRowsSplitter.Dock = DockStyle.Fill;
+            viewRowsSplitter.Location = new Point(0, 0);
+            viewRowsSplitter.Name = "viewRowsSplitter";
+            viewRowsSplitter.RowCount = 2;
+            viewRowsSplitter.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
+            viewRowsSplitter.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            viewRowsSplitter.Size = new Size(1008, 556);
+            viewRowsSplitter.TabIndex = 4;
             // 
             // readRowsBtn
             // 
             readRowsBtn.AutoSize = true;
-            readRowsBtn.Location = new Point(8, 22);
+            readRowsBtn.Dock = DockStyle.Fill;
+            readRowsBtn.Location = new Point(3, 3);
             readRowsBtn.Name = "readRowsBtn";
-            readRowsBtn.Size = new Size(82, 25);
+            readRowsBtn.Size = new Size(1002, 24);
             readRowsBtn.TabIndex = 1;
             readRowsBtn.Text = "Kayıtları Çek";
             readRowsBtn.UseVisualStyleBackColor = true;
             readRowsBtn.Click += readRowsBtn_Click;
             // 
-            // listView1
+            // listBox2
             // 
-            listView1.AccessibleName = "listview accessble name";
-            listView1.Columns.AddRange(new ColumnHeader[] { columnHeader0, columnHeader1, columnHeader2, columnHeader3, columnHeader4, columnHeader5 });
-            listView1.GridLines = true;
-            listView1.HeaderStyle = ColumnHeaderStyle.Nonclickable;
-            listViewItem1.StateImageIndex = 0;
-            listViewItem2.StateImageIndex = 0;
-            listView1.Items.AddRange(new ListViewItem[] { listViewItem1, listViewItem2 });
-            listView1.Location = new Point(8, 414);
-            listView1.Name = "listView1";
-            listView1.Size = new Size(992, 135);
-            listView1.TabIndex = 0;
-            listView1.Tag = "listviewtag";
-            listView1.UseCompatibleStateImageBehavior = false;
-            listView1.View = View.Details;
-            // 
-            // columnHeader0
-            // 
-            columnHeader0.Text = "sıra";
-            columnHeader0.Width = 40;
-            // 
-            // columnHeader1
-            // 
-            columnHeader1.Tag = "";
-            columnHeader1.Text = "username";
-            columnHeader1.Width = 80;
-            // 
-            // columnHeader2
-            // 
-            columnHeader2.Tag = "";
-            columnHeader2.Text = "template";
-            columnHeader2.Width = 200;
-            // 
-            // columnHeader3
-            // 
-            columnHeader3.Text = "notes";
-            columnHeader3.Width = 250;
-            // 
-            // columnHeader4
-            // 
-            columnHeader4.Text = "status description";
-            columnHeader4.Width = 150;
-            // 
-            // columnHeader5
-            // 
-            columnHeader5.Text = "date";
+            listBox2.Dock = DockStyle.Fill;
+            listBox2.FormattingEnabled = true;
+            listBox2.ItemHeight = 15;
+            listBox2.Location = new Point(3, 33);
+            listBox2.Name = "listBox2";
+            listBox2.Size = new Size(1002, 520);
+            listBox2.TabIndex = 3;
             // 
             // tabPage2
             // 
@@ -302,7 +273,7 @@
             // 
             tabPage1.Controls.Add(button8);
             tabPage1.Controls.Add(label8);
-            tabPage1.Controls.Add(button6);
+            tabPage1.Controls.Add(morningBtn);
             tabPage1.Controls.Add(button5);
             tabPage1.Controls.Add(button4);
             tabPage1.Controls.Add(button3);
@@ -344,15 +315,15 @@
             label8.TabIndex = 13;
             label8.Text = "Run As User";
             // 
-            // button6
+            // morningBtn
             // 
-            button6.Location = new Point(490, 34);
-            button6.Name = "button6";
-            button6.Size = new Size(132, 23);
-            button6.TabIndex = 12;
-            button6.Text = "Morning sunshine";
-            button6.UseVisualStyleBackColor = true;
-            button6.Click += button6_Click;
+            morningBtn.Location = new Point(490, 34);
+            morningBtn.Name = "morningBtn";
+            morningBtn.Size = new Size(132, 23);
+            morningBtn.TabIndex = 12;
+            morningBtn.Text = "Morning sunshine";
+            morningBtn.UseVisualStyleBackColor = true;
+            morningBtn.Click += morningBtn_Click;
             // 
             // button5
             // 
@@ -479,6 +450,7 @@
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
             tabControl1.Controls.Add(tabPage3);
+            tabControl1.Controls.Add(tabPage4);
             tabControl1.Dock = DockStyle.Fill;
             tabControl1.Location = new Point(0, 0);
             tabControl1.Name = "tabControl1";
@@ -487,20 +459,79 @@
             tabControl1.TabIndex = 0;
             tabControl1.Tag = "";
             // 
+            // tabPage4
+            // 
+            tabPage4.Controls.Add(listView1);
+            tabPage4.Location = new Point(4, 24);
+            tabPage4.Name = "tabPage4";
+            tabPage4.Padding = new Padding(3);
+            tabPage4.Size = new Size(1008, 556);
+            tabPage4.TabIndex = 3;
+            tabPage4.Text = "Kayıt görüntüleyici beta";
+            tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // listView1
+            // 
+            listView1.AccessibleName = "listview accessble name";
+            listView1.Columns.AddRange(new ColumnHeader[] { columnHeader0, columnHeader1, columnHeader2, columnHeader3, columnHeader4, columnHeader5 });
+            listView1.Dock = DockStyle.Fill;
+            listView1.GridLines = true;
+            listView1.HeaderStyle = ColumnHeaderStyle.Nonclickable;
+            listViewItem1.StateImageIndex = 0;
+            listViewItem2.StateImageIndex = 0;
+            listView1.Items.AddRange(new ListViewItem[] { listViewItem1, listViewItem2 });
+            listView1.Location = new Point(3, 3);
+            listView1.Name = "listView1";
+            listView1.Size = new Size(1002, 550);
+            listView1.TabIndex = 1;
+            listView1.Tag = "listviewtag";
+            listView1.UseCompatibleStateImageBehavior = false;
+            listView1.View = View.Details;
+            // 
+            // columnHeader0
+            // 
+            columnHeader0.Text = "sıra";
+            columnHeader0.Width = 40;
+            // 
+            // columnHeader1
+            // 
+            columnHeader1.Tag = "";
+            columnHeader1.Text = "username";
+            columnHeader1.Width = 80;
+            // 
+            // columnHeader2
+            // 
+            columnHeader2.Tag = "";
+            columnHeader2.Text = "template";
+            columnHeader2.Width = 200;
+            // 
+            // columnHeader3
+            // 
+            columnHeader3.Text = "notes";
+            columnHeader3.Width = 250;
+            // 
+            // columnHeader4
+            // 
+            columnHeader4.Text = "status description";
+            columnHeader4.Width = 150;
+            // 
+            // columnHeader5
+            // 
+            columnHeader5.Text = "date";
+            // 
             // statusStrip1
             // 
-            statusStrip1.Items.AddRange(new ToolStripItem[] { toolStripStatusLabel1 });
+            statusStrip1.Items.AddRange(new ToolStripItem[] { StatusLabel1 });
             statusStrip1.Location = new Point(0, 584);
             statusStrip1.Name = "statusStrip1";
             statusStrip1.Size = new Size(1016, 22);
             statusStrip1.TabIndex = 1;
             statusStrip1.Text = "statusStrip1";
             // 
-            // toolStripStatusLabel1
+            // StatusLabel1
             // 
-            toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            toolStripStatusLabel1.Size = new Size(61, 17);
-            toolStripStatusLabel1.Text = "Son işlem:";
+            StatusLabel1.Name = "StatusLabel1";
+            StatusLabel1.Size = new Size(0, 17);
             // 
             // Form1
             // 
@@ -513,12 +544,14 @@
             Name = "Form1";
             Text = "CSPL";
             tabPage3.ResumeLayout(false);
-            tabPage3.PerformLayout();
+            viewRowsSplitter.ResumeLayout(false);
+            viewRowsSplitter.PerformLayout();
             tabPage2.ResumeLayout(false);
             tabPage2.PerformLayout();
             tabPage1.ResumeLayout(false);
             tabPage1.PerformLayout();
             tabControl1.ResumeLayout(false);
+            tabPage4.ResumeLayout(false);
             statusStrip1.ResumeLayout(false);
             statusStrip1.PerformLayout();
             ResumeLayout(false);
@@ -530,15 +563,7 @@
         private ColumnHeader sütun2;
         private ColumnHeader sütun3;
         private TabPage tabPage3;
-        private ListBox listBox2;
         private Button readRowsBtn;
-        private ListView listView1;
-        private ColumnHeader columnHeader0;
-        private ColumnHeader columnHeader1;
-        private ColumnHeader columnHeader2;
-        private ColumnHeader columnHeader3;
-        private ColumnHeader columnHeader4;
-        private ColumnHeader columnHeader5;
         private TabPage tabPage2;
         private Button button7;
         private Label label9;
@@ -554,7 +579,7 @@
         private Label label5;
         private TabPage tabPage1;
         private Label label8;
-        private Button button6;
+        private Button morningBtn;
         private Button button5;
         private Button button4;
         private Button button3;
@@ -571,6 +596,16 @@
         private TabControl tabControl1;
         private Button button8;
         private StatusStrip statusStrip1;
-        private ToolStripStatusLabel toolStripStatusLabel1;
+        private ToolStripStatusLabel StatusLabel1;
+        private ListBox listBox2;
+        private TabPage tabPage4;
+        private ListView listView1;
+        private ColumnHeader columnHeader0;
+        private ColumnHeader columnHeader1;
+        private ColumnHeader columnHeader2;
+        private ColumnHeader columnHeader3;
+        private ColumnHeader columnHeader4;
+        private ColumnHeader columnHeader5;
+        private TableLayoutPanel viewRowsSplitter;
     }
 }
