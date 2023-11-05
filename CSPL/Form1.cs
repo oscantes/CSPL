@@ -21,17 +21,17 @@ namespace CSPL
                 $"Processor Count: {Environment.ProcessorCount}\r\n";
 
             //writes launch time to statusbar
-            StatusLabel1.Text = $"{DateTime.Now.ToString(format: "g")}";
+            StatusLabel1.Text = $"{DateTime.Now.ToString(format: "G")}";
         }
 
         private void tab2listBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            tab2richTextBox2.Text = (string)tab2listBox2.SelectedItem;
+            tab2NotesTxtBox.Text = (string)tab2Notes.SelectedItem;
         }
 
         private void tab2listBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
-            tab2richTextBox3.Text = (string)tab2listBox3.SelectedItem;
+            tab2StatusDescriptionTxtBox.Text = (string)tab2StatusDescription.SelectedItem;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -63,28 +63,37 @@ namespace CSPL
             tab2usernamebox.Text = tab1username.Text;
         }
 
-        private void tab2button1_Click(object sender, EventArgs e)
+        private void CreateRowBtn_Click(object sender, EventArgs e)
         {
+            bool mandUsername = tab2usernamebox.Text != "";
+            bool mandTemplate = tab2Templates.SelectedItem != null;
+            bool mandNote = tab2NotesTxtBox.Text != "";
+            bool mandStatus = tab2StatusDescriptionTxtBox.Text != "";
 
-            using (StreamWriter outputFile = new StreamWriter(Path.Combine(Environment.GetFolderPath(0), "incident_NEW.txt"), append: true)) //(0) for desktop; true: append
+
+            if (mandUsername & mandTemplate & mandNote & mandStatus)
             {
-                //tarih damgasý þimdilik mevcutta(excel)de oluþturulan formatta eklendi
-                //string.Join() de kullanýlabilir
-                string entry_to_file = $"{tab2usernamebox.Text};{tab2listBox1.SelectedItem};{tab2richTextBox2.Text};{tab2richTextBox3.Text};{DateTime.Now.ToString(format: "G")}";
-                outputFile.WriteLine(entry_to_file);
-                label9.Text = $"Son kayýt: {entry_to_file}";
-                tab2usernamebox.Text = String.Empty;
-                tab2richTextBox2.Text = String.Empty;
-                tab2richTextBox3.Text = String.Empty;
-                tab2listBox1.SelectedIndex = -1;
-                tab2listBox2.SelectedIndex = -1;
-                tab2listBox3.SelectedIndex = -1;
-                //var t = Task.Run(async delegate
-                //{
-                //    await Task.Delay(3000);
-                //    label9.Text = String.Empty;
-                //});
+                string IncNEWFolderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), @"UiPath\incident_NEW.txt");
+                using (StreamWriter outputFile = new StreamWriter(IncNEWFolderPath, append: true)) //(0) for desktop; true: append
+                {
+                    //string.Join() de kullanýlabilir
+                    string entry_to_file = $"{tab2usernamebox.Text};{tab2Templates.SelectedItem};{tab2NotesTxtBox.Text};{tab2StatusDescriptionTxtBox.Text};{DateTime.Now.ToString(format: "dd.MM.yyyy")}";
+                    outputFile.WriteLine(entry_to_file);
+
+                    StatusbarNotifier(true, $"{tab2usernamebox.Text} kullanýcýsý için {tab2Templates.SelectedItem} girdisi oluþturuldu");
+                    tab2usernamebox.Text = String.Empty;
+                    tab2NotesTxtBox.Text = String.Empty;
+                    tab2StatusDescriptionTxtBox.Text = String.Empty;
+                    tab2Templates.SelectedIndex = -1;
+                    tab2Notes.SelectedIndex = -1;
+                    tab2StatusDescription.SelectedIndex = -1;
+                }
             }
+            else
+            {
+                StatusbarNotifier(false, "Girdi oluþturulmasý için gerekli alanlarý kontrol edin");
+            }
+
         }
 
         private void readRowsBtn_Click(object sender, EventArgs e)
@@ -93,7 +102,8 @@ namespace CSPL
             {
                 // Open the text file using a streamreader(with using statement, why though?), read the stream as a string
                 //StreamReader'ýn ilginç bir yapýsý var, bir kere akýyor ve while içinde deðeri deðiþiyor
-                using (var sr = new StreamReader(Path.Combine(Environment.GetFolderPath(0), "incident_NEW.txt")))
+                string IncNEWFolderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), @"UiPath\incident_NEW.txt");
+                using (var sr = new StreamReader(IncNEWFolderPath))
                 {
                     listBox2.Items.Clear();
                     string line = "";
@@ -134,8 +144,6 @@ namespace CSPL
 
         private void button8_Click(object sender, EventArgs e)
         {
-            //powershell komutu ile denenecek
-
             //AddCommand çalýþmýyor, belki console'da çalýþýyordur
             //AddParameter da etki etmedi nedense
             PowerShell restartPS = PowerShell.Create();

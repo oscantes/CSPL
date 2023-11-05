@@ -36,18 +36,20 @@
             readRowsBtn = new Button();
             listBox2 = new ListBox();
             tabPage2 = new TabPage();
-            button7 = new Button();
-            label9 = new Label();
-            tab2button1 = new Button();
-            tab2richTextBox3 = new RichTextBox();
-            tab2richTextBox2 = new RichTextBox();
+            CreateTabMainSplit = new SplitContainer();
+            CreateTabTable1 = new TableLayoutPanel();
+            tab2Templates = new ListBox();
             tab2usernamebox = new TextBox();
-            tab2listBox3 = new ListBox();
-            label7 = new Label();
-            tab2listBox2 = new ListBox();
-            label6 = new Label();
-            tab2listBox1 = new ListBox();
             label5 = new Label();
+            CreateTabTable2 = new TableLayoutPanel();
+            CreateRowBtn = new Button();
+            label6 = new Label();
+            tab2Notes = new ListBox();
+            tab2StatusDescription = new ListBox();
+            label7 = new Label();
+            button7 = new Button();
+            tab2NotesTxtBox = new TextBox();
+            tab2StatusDescriptionTxtBox = new TextBox();
             tabPage1 = new TabPage();
             button8 = new Button();
             label8 = new Label();
@@ -79,6 +81,12 @@
             tabPage3.SuspendLayout();
             viewRowsSplitter.SuspendLayout();
             tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)CreateTabMainSplit).BeginInit();
+            CreateTabMainSplit.Panel1.SuspendLayout();
+            CreateTabMainSplit.Panel2.SuspendLayout();
+            CreateTabMainSplit.SuspendLayout();
+            CreateTabTable1.SuspendLayout();
+            CreateTabTable2.SuspendLayout();
             tabPage1.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPage4.SuspendLayout();
@@ -90,7 +98,7 @@
             tabPage3.Controls.Add(viewRowsSplitter);
             tabPage3.Location = new Point(4, 24);
             tabPage3.Name = "tabPage3";
-            tabPage3.Size = new Size(1008, 556);
+            tabPage3.Size = new Size(976, 561);
             tabPage3.TabIndex = 2;
             tabPage3.Text = "Kayıt Görüntüleyici";
             tabPage3.UseVisualStyleBackColor = true;
@@ -107,7 +115,7 @@
             viewRowsSplitter.RowCount = 2;
             viewRowsSplitter.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
             viewRowsSplitter.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            viewRowsSplitter.Size = new Size(1008, 556);
+            viewRowsSplitter.Size = new Size(976, 561);
             viewRowsSplitter.TabIndex = 4;
             // 
             // readRowsBtn
@@ -116,7 +124,7 @@
             readRowsBtn.Dock = DockStyle.Fill;
             readRowsBtn.Location = new Point(3, 3);
             readRowsBtn.Name = "readRowsBtn";
-            readRowsBtn.Size = new Size(1002, 24);
+            readRowsBtn.Size = new Size(970, 24);
             readRowsBtn.TabIndex = 1;
             readRowsBtn.Text = "Kayıtları Çek";
             readRowsBtn.UseVisualStyleBackColor = true;
@@ -126,148 +134,197 @@
             // 
             listBox2.Dock = DockStyle.Fill;
             listBox2.FormattingEnabled = true;
+            listBox2.HorizontalScrollbar = true;
             listBox2.ItemHeight = 15;
             listBox2.Location = new Point(3, 33);
             listBox2.Name = "listBox2";
-            listBox2.Size = new Size(1002, 520);
+            listBox2.Size = new Size(970, 525);
             listBox2.TabIndex = 3;
             // 
             // tabPage2
             // 
             tabPage2.BackColor = Color.White;
-            tabPage2.Controls.Add(button7);
-            tabPage2.Controls.Add(label9);
-            tabPage2.Controls.Add(tab2button1);
-            tabPage2.Controls.Add(tab2richTextBox3);
-            tabPage2.Controls.Add(tab2richTextBox2);
-            tabPage2.Controls.Add(tab2usernamebox);
-            tabPage2.Controls.Add(tab2listBox3);
-            tabPage2.Controls.Add(label7);
-            tabPage2.Controls.Add(tab2listBox2);
-            tabPage2.Controls.Add(label6);
-            tabPage2.Controls.Add(tab2listBox1);
-            tabPage2.Controls.Add(label5);
+            tabPage2.Controls.Add(CreateTabMainSplit);
             tabPage2.Location = new Point(4, 24);
             tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1008, 556);
+            tabPage2.Size = new Size(976, 561);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Kayıt Oluşturucu";
             // 
-            // button7
+            // CreateTabMainSplit
             // 
-            button7.AutoSize = true;
-            button7.Location = new Point(792, 20);
-            button7.Name = "button7";
-            button7.Size = new Size(188, 25);
-            button7.TabIndex = 20;
-            button7.Text = "Update Templates(not ready yet)";
-            button7.UseVisualStyleBackColor = true;
+            CreateTabMainSplit.Dock = DockStyle.Fill;
+            CreateTabMainSplit.Location = new Point(0, 0);
+            CreateTabMainSplit.Name = "CreateTabMainSplit";
             // 
-            // label9
+            // CreateTabMainSplit.Panel1
             // 
-            label9.AutoSize = true;
-            label9.Location = new Point(8, 511);
-            label9.Name = "label9";
-            label9.Size = new Size(64, 15);
-            label9.TabIndex = 19;
-            label9.Text = "Son işlem: ";
+            CreateTabMainSplit.Panel1.Controls.Add(CreateTabTable1);
             // 
-            // tab2button1
+            // CreateTabMainSplit.Panel2
             // 
-            tab2button1.AutoSize = true;
-            tab2button1.Location = new Point(896, 506);
-            tab2button1.Name = "tab2button1";
-            tab2button1.Size = new Size(84, 25);
-            tab2button1.TabIndex = 18;
-            tab2button1.Text = "Create Entry";
-            tab2button1.UseVisualStyleBackColor = true;
-            tab2button1.Click += tab2button1_Click;
+            CreateTabMainSplit.Panel2.Controls.Add(CreateTabTable2);
+            CreateTabMainSplit.Size = new Size(976, 561);
+            CreateTabMainSplit.SplitterDistance = 363;
+            CreateTabMainSplit.TabIndex = 21;
             // 
-            // tab2richTextBox3
+            // CreateTabTable1
             // 
-            tab2richTextBox3.Location = new Point(408, 472);
-            tab2richTextBox3.Multiline = false;
-            tab2richTextBox3.Name = "tab2richTextBox3";
-            tab2richTextBox3.Size = new Size(572, 23);
-            tab2richTextBox3.TabIndex = 17;
-            tab2richTextBox3.Text = "";
+            CreateTabTable1.ColumnCount = 1;
+            CreateTabTable1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            CreateTabTable1.Controls.Add(tab2Templates, 0, 2);
+            CreateTabTable1.Controls.Add(tab2usernamebox, 0, 0);
+            CreateTabTable1.Controls.Add(label5, 0, 1);
+            CreateTabTable1.Dock = DockStyle.Fill;
+            CreateTabTable1.Location = new Point(0, 0);
+            CreateTabTable1.Name = "CreateTabTable1";
+            CreateTabTable1.RowCount = 3;
+            CreateTabTable1.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
+            CreateTabTable1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            CreateTabTable1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            CreateTabTable1.Size = new Size(363, 561);
+            CreateTabTable1.TabIndex = 0;
             // 
-            // tab2richTextBox2
+            // tab2Templates
             // 
-            tab2richTextBox2.Location = new Point(408, 246);
-            tab2richTextBox2.Multiline = false;
-            tab2richTextBox2.Name = "tab2richTextBox2";
-            tab2richTextBox2.Size = new Size(572, 23);
-            tab2richTextBox2.TabIndex = 14;
-            tab2richTextBox2.Text = "";
+            tab2Templates.Dock = DockStyle.Fill;
+            tab2Templates.FormattingEnabled = true;
+            tab2Templates.ItemHeight = 15;
+            tab2Templates.Items.AddRange(new object[] { "Bilgisayar Performans Sorunu", "BTM - Bilge:Uygulaması Üzerinde Yaşanan Sorun", "BTM - Bilgisayar Ağ Bağlantı Sorunu (IP alamama vb.)", "BTM - Bilgisayar Donanım Sorunu - İNNOVA", "BTM - Cisco Softphone Görüşme Sorunu", "CÜZDAN YAZICI SORUNU", "BTM - Çok Fonksiyonlu Yazıcı) Sorunu", "BTM - E - Faks Sorunu", "BTM - Elektronik İmza Uygulama Sorunları", "BTM - HALKA Uygulama Sorunları", "BTM - HalkAkademi Uygulama Sorunu", "BTM - Halkportal Erişim Sorunları", "BTM - Halkportal Üzerindeki Diğer Uygulama Sorunları", "BTM - HALKRAPOR Erişim ya da Raporlama Sorunu", "BTM - Internet Tarayıcı Sorunları", "BTM - Info (Ctrl - F12)", "BTM - IP telefon sorunu", "BTM - Kimyon Şifre ve Yetki Sorunları", "BTM - MDM Kullanıcı Bilgilendirme ( Telefon ayarları konusunda )", "BTM - Pulse Secure SSL VPN Uygulama Sorunu", "BTM - Office Program Sorunları", "BTM - Ortak Klasör Erişim Sorunu", "BTM - Uzak Bağlantı Sorunu", "Para Sayma Makinesi Sorunu", "Sıramatik Sorunu", "Tarayıcı Sorunu ", "YOP-Bankacılık Ekran Sorunları" });
+            tab2Templates.Location = new Point(3, 53);
+            tab2Templates.Name = "tab2Templates";
+            tab2Templates.Size = new Size(357, 505);
+            tab2Templates.TabIndex = 10;
             // 
             // tab2usernamebox
             // 
-            tab2usernamebox.Location = new Point(8, 22);
+            tab2usernamebox.Dock = DockStyle.Fill;
+            tab2usernamebox.Location = new Point(3, 3);
             tab2usernamebox.Name = "tab2usernamebox";
             tab2usernamebox.PlaceholderText = "Enter username";
-            tab2usernamebox.Size = new Size(200, 23);
+            tab2usernamebox.Size = new Size(357, 23);
             tab2usernamebox.TabIndex = 8;
-            // 
-            // tab2listBox3
-            // 
-            tab2listBox3.FormattingEnabled = true;
-            tab2listBox3.ItemHeight = 15;
-            tab2listBox3.Items.AddRange(new object[] { "destek verildi", "müdahale edilerek sorun giderildi", "müdahale edildi fakat sorun giderilemedi. fiziksel müdahale için yönlendirme yapıldı", "kayıt açılarak ilgili birime iletildi", "masaüstü telefonda oturum açma dokümanına yönlendirildi", "ANKA'ya yapılan müdahale ile çözülmeyen sorun için yop'a kayıt açıldı", "yetkisel sorun, yönlendirme yapıldı", "kronik elitebook g9 hücresel bağlantı sorunu, müdahale edilerek geçici çözüm sağlandı" });
-            tab2listBox3.Location = new Point(408, 312);
-            tab2listBox3.Name = "tab2listBox3";
-            tab2listBox3.Size = new Size(572, 154);
-            tab2listBox3.TabIndex = 16;
-            tab2listBox3.SelectedIndexChanged += tab2listBox3_SelectedIndexChanged;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(408, 294);
-            label7.Name = "label7";
-            label7.Size = new Size(229, 15);
-            label7.TabIndex = 15;
-            label7.Text = "3- STATUS DESCRIPTION(ACTIONS TAKEN)";
-            // 
-            // tab2listBox2
-            // 
-            tab2listBox2.FormattingEnabled = true;
-            tab2listBox2.ItemHeight = 15;
-            tab2listBox2.Items.AddRange(new object[] { "tarama yapılamıyor", "tarama yapılamıyor(çek tarayıcı)", "çıktı alınamıyor", "bord ekranında spool hatası alınıyor", "masaüstü telefona login olmak isteniyor", "mobil mail uygulaması kullanıcı kodu değişikliği sonrası şifre kabul etmiyor", "görüntülü görüşmede sorun yaşanıyor", "kullanıcı kodu değişikliği sonrası sorun yaşanıyor", "hücresel bağlantısı görünmemekte" });
-            tab2listBox2.Location = new Point(408, 86);
-            tab2listBox2.Name = "tab2listBox2";
-            tab2listBox2.Size = new Size(572, 154);
-            tab2listBox2.TabIndex = 13;
-            tab2listBox2.SelectedIndexChanged += tab2listBox2_SelectedIndexChanged;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(408, 68);
-            label6.Name = "label6";
-            label6.Size = new Size(157, 15);
-            label6.TabIndex = 12;
-            label6.Text = "2- NOTES(ABOUT INCIDENT)";
-            // 
-            // tab2listBox1
-            // 
-            tab2listBox1.FormattingEnabled = true;
-            tab2listBox1.ItemHeight = 15;
-            tab2listBox1.Items.AddRange(new object[] { "Bilgisayar Performans Sorunu", "BTM - Bilge:Uygulaması Üzerinde Yaşanan Sorun", "BTM - Bilgisayar Ağ Bağlantı Sorunu (IP alamama vb.)", "BTM - Bilgisayar Donanım Sorunu - İNNOVA", "BTM - Cisco Softphone Görüşme Sorunu", "CÜZDAN YAZICI SORUNU", "BTM - Çok Fonksiyonlu Yazıcı) Sorunu", "BTM - E - Faks Sorunu", "BTM - Elektronik İmza Uygulama Sorunları", "BTM - HALKA Uygulama Sorunları", "BTM - HalkAkademi Uygulama Sorunu", "BTM - Halkportal Erişim Sorunları", "BTM - Halkportal Üzerindeki Diğer Uygulama Sorunları", "BTM - HALKRAPOR Erişim ya da Raporlama Sorunu", "BTM - Internet Tarayıcı Sorunları", "BTM - Info (Ctrl - F12)", "BTM - IP telefon sorunu", "BTM - Kimyon Şifre ve Yetki Sorunları", "BTM - MDM Kullanıcı Bilgilendirme ( Telefon ayarları konusunda )", "BTM - Pulse Secure SSL VPN Uygulama Sorunu", "BTM - Office Program Sorunları", "BTM - Ortak Klasör Erişim Sorunu", "BTM - Uzak Bağlantı Sorunu", "Para Sayma Makinesi Sorunu", "Sıramatik Sorunu", "Tarayıcı Sorunu", "YOP-Bankacılık Ekran Sorunları" });
-            tab2listBox1.Location = new Point(8, 86);
-            tab2listBox1.Name = "tab2listBox1";
-            tab2listBox1.Size = new Size(394, 409);
-            tab2listBox1.TabIndex = 10;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(8, 68);
+            label5.Location = new Point(3, 30);
             label5.Name = "label5";
             label5.Size = new Size(76, 15);
             label5.TabIndex = 9;
             label5.Text = "1- TEMPLATE";
+            // 
+            // CreateTabTable2
+            // 
+            CreateTabTable2.ColumnCount = 1;
+            CreateTabTable2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            CreateTabTable2.Controls.Add(CreateRowBtn, 0, 7);
+            CreateTabTable2.Controls.Add(label6, 0, 1);
+            CreateTabTable2.Controls.Add(tab2Notes, 0, 2);
+            CreateTabTable2.Controls.Add(tab2StatusDescription, 0, 5);
+            CreateTabTable2.Controls.Add(label7, 0, 4);
+            CreateTabTable2.Controls.Add(button7, 0, 0);
+            CreateTabTable2.Controls.Add(tab2NotesTxtBox, 0, 3);
+            CreateTabTable2.Controls.Add(tab2StatusDescriptionTxtBox, 0, 6);
+            CreateTabTable2.Dock = DockStyle.Fill;
+            CreateTabTable2.Location = new Point(0, 0);
+            CreateTabTable2.Name = "CreateTabTable2";
+            CreateTabTable2.RowCount = 8;
+            CreateTabTable2.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
+            CreateTabTable2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            CreateTabTable2.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            CreateTabTable2.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
+            CreateTabTable2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            CreateTabTable2.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            CreateTabTable2.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
+            CreateTabTable2.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
+            CreateTabTable2.Size = new Size(609, 561);
+            CreateTabTable2.TabIndex = 0;
+            // 
+            // CreateRowBtn
+            // 
+            CreateRowBtn.AutoSize = true;
+            CreateRowBtn.Dock = DockStyle.Right;
+            CreateRowBtn.Location = new Point(522, 533);
+            CreateRowBtn.Name = "CreateRowBtn";
+            CreateRowBtn.Size = new Size(84, 25);
+            CreateRowBtn.TabIndex = 18;
+            CreateRowBtn.Text = "Create Entry";
+            CreateRowBtn.UseVisualStyleBackColor = true;
+            CreateRowBtn.Click += CreateRowBtn_Click;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Dock = DockStyle.Left;
+            label6.Location = new Point(3, 30);
+            label6.Name = "label6";
+            label6.Size = new Size(157, 20);
+            label6.TabIndex = 12;
+            label6.Text = "2- NOTES(ABOUT INCIDENT)";
+            // 
+            // tab2Notes
+            // 
+            tab2Notes.Dock = DockStyle.Fill;
+            tab2Notes.FormattingEnabled = true;
+            tab2Notes.ItemHeight = 15;
+            tab2Notes.Items.AddRange(new object[] { "tarama yapılamıyor", "tarama yapılamıyor(çek tarayıcı)", "çıktı alınamıyor", "bord ekranında spool hatası alınıyor", "masaüstü telefona login olmak isteniyor", "mobil mail uygulaması kullanıcı kodu değişikliği sonrası şifre kabul etmiyor", "görüntülü görüşmede sorun yaşanıyor", "kullanıcı kodu değişikliği sonrası sorun yaşanıyor", "hücresel bağlantısı görünmemekte" });
+            tab2Notes.Location = new Point(3, 53);
+            tab2Notes.Name = "tab2Notes";
+            tab2Notes.Size = new Size(603, 194);
+            tab2Notes.TabIndex = 13;
+            tab2Notes.SelectedIndexChanged += tab2listBox2_SelectedIndexChanged;
+            // 
+            // tab2StatusDescription
+            // 
+            tab2StatusDescription.Dock = DockStyle.Fill;
+            tab2StatusDescription.FormattingEnabled = true;
+            tab2StatusDescription.ItemHeight = 15;
+            tab2StatusDescription.Items.AddRange(new object[] { "destek verildi", "müdahale edilerek sorun giderildi", "müdahale edildi fakat sorun giderilemedi. fiziksel müdahale için yönlendirme yapıldı", "kayıt açılarak ilgili birime iletildi", "masaüstü telefonda oturum açma dokümanına yönlendirildi", "ANKA'ya yapılan müdahale ile çözülmeyen sorun için yop'a kayıt açıldı", "yetkisel sorun, yönlendirme yapıldı", "kronik elitebook g9 hücresel bağlantı sorunu, müdahale edilerek geçici çözüm sağlandı" });
+            tab2StatusDescription.Location = new Point(3, 303);
+            tab2StatusDescription.Name = "tab2StatusDescription";
+            tab2StatusDescription.Size = new Size(603, 194);
+            tab2StatusDescription.TabIndex = 16;
+            tab2StatusDescription.SelectedIndexChanged += tab2listBox3_SelectedIndexChanged;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Dock = DockStyle.Left;
+            label7.Location = new Point(3, 280);
+            label7.Name = "label7";
+            label7.Size = new Size(229, 20);
+            label7.TabIndex = 15;
+            label7.Text = "3- STATUS DESCRIPTION(ACTIONS TAKEN)";
+            // 
+            // button7
+            // 
+            button7.AutoSize = true;
+            button7.Dock = DockStyle.Right;
+            button7.Location = new Point(418, 3);
+            button7.Name = "button7";
+            button7.Size = new Size(188, 24);
+            button7.TabIndex = 20;
+            button7.Text = "Update Templates(not ready yet)";
+            button7.UseVisualStyleBackColor = true;
+            // 
+            // tab2NotesTxtBox
+            // 
+            tab2NotesTxtBox.Dock = DockStyle.Fill;
+            tab2NotesTxtBox.Location = new Point(3, 253);
+            tab2NotesTxtBox.Name = "tab2NotesTxtBox";
+            tab2NotesTxtBox.PlaceholderText = "Select any Notes from list or type here";
+            tab2NotesTxtBox.Size = new Size(603, 23);
+            tab2NotesTxtBox.TabIndex = 21;
+            // 
+            // tab2StatusDescriptionTxtBox
+            // 
+            tab2StatusDescriptionTxtBox.Dock = DockStyle.Fill;
+            tab2StatusDescriptionTxtBox.Location = new Point(3, 503);
+            tab2StatusDescriptionTxtBox.Name = "tab2StatusDescriptionTxtBox";
+            tab2StatusDescriptionTxtBox.PlaceholderText = "Select any Status Description from list or type here";
+            tab2StatusDescriptionTxtBox.Size = new Size(603, 23);
+            tab2StatusDescriptionTxtBox.TabIndex = 22;
             // 
             // tabPage1
             // 
@@ -289,8 +346,7 @@
             tabPage1.Controls.Add(label1);
             tabPage1.Location = new Point(4, 24);
             tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1008, 556);
+            tabPage1.Size = new Size(976, 561);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Home";
             tabPage1.UseVisualStyleBackColor = true;
@@ -309,7 +365,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point);
-            label8.Location = new Point(778, 14);
+            label8.Location = new Point(754, 14);
             label8.Name = "label8";
             label8.Size = new Size(70, 15);
             label8.TabIndex = 13;
@@ -455,7 +511,7 @@
             tabControl1.Location = new Point(0, 0);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1016, 584);
+            tabControl1.Size = new Size(984, 589);
             tabControl1.TabIndex = 0;
             tabControl1.Tag = "";
             // 
@@ -465,7 +521,7 @@
             tabPage4.Location = new Point(4, 24);
             tabPage4.Name = "tabPage4";
             tabPage4.Padding = new Padding(3);
-            tabPage4.Size = new Size(1008, 556);
+            tabPage4.Size = new Size(976, 561);
             tabPage4.TabIndex = 3;
             tabPage4.Text = "Kayıt görüntüleyici beta";
             tabPage4.UseVisualStyleBackColor = true;
@@ -482,7 +538,7 @@
             listView1.Items.AddRange(new ListViewItem[] { listViewItem1, listViewItem2 });
             listView1.Location = new Point(3, 3);
             listView1.Name = "listView1";
-            listView1.Size = new Size(1002, 550);
+            listView1.Size = new Size(970, 555);
             listView1.TabIndex = 1;
             listView1.Tag = "listviewtag";
             listView1.UseCompatibleStateImageBehavior = false;
@@ -522,9 +578,9 @@
             // statusStrip1
             // 
             statusStrip1.Items.AddRange(new ToolStripItem[] { StatusLabel1 });
-            statusStrip1.Location = new Point(0, 584);
+            statusStrip1.Location = new Point(0, 589);
             statusStrip1.Name = "statusStrip1";
-            statusStrip1.Size = new Size(1016, 22);
+            statusStrip1.Size = new Size(984, 22);
             statusStrip1.TabIndex = 1;
             statusStrip1.Text = "statusStrip1";
             // 
@@ -537,17 +593,25 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1016, 606);
+            ClientSize = new Size(984, 611);
             Controls.Add(tabControl1);
             Controls.Add(statusStrip1);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MinimumSize = new Size(800, 550);
             Name = "Form1";
             Text = "CSPL";
             tabPage3.ResumeLayout(false);
             viewRowsSplitter.ResumeLayout(false);
             viewRowsSplitter.PerformLayout();
             tabPage2.ResumeLayout(false);
-            tabPage2.PerformLayout();
+            CreateTabMainSplit.Panel1.ResumeLayout(false);
+            CreateTabMainSplit.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)CreateTabMainSplit).EndInit();
+            CreateTabMainSplit.ResumeLayout(false);
+            CreateTabTable1.ResumeLayout(false);
+            CreateTabTable1.PerformLayout();
+            CreateTabTable2.ResumeLayout(false);
+            CreateTabTable2.PerformLayout();
             tabPage1.ResumeLayout(false);
             tabPage1.PerformLayout();
             tabControl1.ResumeLayout(false);
@@ -566,16 +630,13 @@
         private Button readRowsBtn;
         private TabPage tabPage2;
         private Button button7;
-        private Label label9;
-        private Button tab2button1;
-        private RichTextBox tab2richTextBox3;
-        private RichTextBox tab2richTextBox2;
+        private Button CreateRowBtn;
         private TextBox tab2usernamebox;
-        private ListBox tab2listBox3;
+        private ListBox tab2StatusDescription;
         private Label label7;
-        private ListBox tab2listBox2;
+        private ListBox tab2Notes;
         private Label label6;
-        private ListBox tab2listBox1;
+        private ListBox tab2Templates;
         private Label label5;
         private TabPage tabPage1;
         private Label label8;
@@ -607,5 +668,10 @@
         private ColumnHeader columnHeader4;
         private ColumnHeader columnHeader5;
         private TableLayoutPanel viewRowsSplitter;
+        private SplitContainer CreateTabMainSplit;
+        private TableLayoutPanel CreateTabTable1;
+        private TableLayoutPanel CreateTabTable2;
+        private TextBox tab2NotesTxtBox;
+        private TextBox tab2StatusDescriptionTxtBox;
     }
 }
