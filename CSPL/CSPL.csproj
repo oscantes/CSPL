@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
-    <ApplicationIcon>icons (3).ico</ApplicationIcon>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
     <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
 
@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="icons (3).ico" />
+    <Content Include="favicon.ico" />
   </ItemGroup>
 
   <ItemGroup>
