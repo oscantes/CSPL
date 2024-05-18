@@ -1,4 +1,4 @@
-#### Hi there!
+ï»¿#### Hi there!
 This program is the one I intend to use daily and develope according to my needs in IT
 
 # Release Notes
@@ -14,19 +14,19 @@ quick buttons such as "Get Hostname/IP from DW", "Browse C:\", "Open Hosts File"
 **GetHostInfo():** shows Device and OS info
 **GetUserInfo():** shows Title, PasswordLastSet, PasswordExpire, PasswordExpiresIn, hasVPN, user picture etc.
 **isreachable():** can detect restricted computers
-**Kayýt Oluþturucu:** when this tab selected, form size expands in width
-**Kayýt Görüntüleyici:** all incident*.txt files are selectable
-**Kayýt Görüntüleyici:** double click an item to clone incident
-**Kayýt Görüntüleyici:** open incident*.txt files in File Explorer
-**Kayýt Görüntüleyici:** search incidents and scroll to first matched item
-**Jabber Califfer™**
-**Dosya Ýþlemleri:** Browse files, get folder size, mirror files in seperate folders
+**KayÄ±t OluÅŸturucu:** when this tab selected, form size expands in width
+**KayÄ±t GÃ¶rÃ¼ntÃ¼leyici:** all incident*.txt files are selectable
+**KayÄ±t GÃ¶rÃ¼ntÃ¼leyici:** double click an item to clone incident
+**KayÄ±t GÃ¶rÃ¼ntÃ¼leyici:** open incident*.txt files in File Explorer
+**KayÄ±t GÃ¶rÃ¼ntÃ¼leyici:** search incidents and scroll to first matched item
+**Jabber Califferâ„¢**
+**Dosya Ä°ÅŸlemleri:** Browse files, get folder size, mirror files in seperate folders
 
 ### Changed
 Complete UI overhaul, a lot of UI functions run async now
 **status bar:** animates when a process is running or finished
-**Ýþlem Menüsü:** removed completely
+**Ä°ÅŸlem MenÃ¼sÃ¼:** removed completely
 
 ### Fixed
-**Kayýt Görüntüleyici:** search function can't scroll to matched item when list is not long enough
+**KayÄ±t GÃ¶rÃ¼ntÃ¼leyici:** search function can't scroll to matched item when list is not long enough
 **log system:** many functions don't log
